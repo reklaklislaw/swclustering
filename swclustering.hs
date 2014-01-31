@@ -21,16 +21,16 @@ main = do
   let len = length args
   when (len /=  7) $ error "invalid number of arguments"
   let in_file = args !! 0
-  let out_file = args !! 1
-  let window_width = read (args !! 2) :: Int
-  let window_height = read (args !! 3) :: Int
-  let skew_angle = read (args !! 4) :: Float
-  let mx = read (args !! 5) :: Int
-  let my = read (args !! 6) :: Int
+      out_file = args !! 1
+      window_width = read (args !! 2) :: Int
+      window_height = read (args !! 3) :: Int
+      skew_angle = read (args !! 4) :: Float
+      mx = read (args !! 5) :: Int
+      my = read (args !! 6) :: Int
   
   corners <- getCornersFromFile skew_angle mx my in_file
   let clusters = clusterCorners window_width window_height corners
-  let dimensions = getClusterDimensions clusters
+      dimensions = getClusterDimensions clusters
   dimensionsToFile out_file dimensions
   --print clusters
   --print (show (l clusters) ++" "++ show (t clusters) ++" "++ 
